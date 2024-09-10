@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<AppFluxoDeCaixa.Models.Fornecedor>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Cadastro dos fornecedores";
 }
 
 <div class="container">
@@ -10,64 +10,66 @@
     <p>
         <a asp-action="Create" class="btn btn-lg btn-secondary mt-3">Adicionar</a>
     </p>
-    <table class="table table-dark table-striped table-hover">
+    <div class="table-responsive mt-5">
+        <table class="table table-dark table-striped table-hover">
 
-        <thead>
-            <tr>
-                <th class="bg-black">
-                    @Html.DisplayNameFor(model => model.Nome)
-                </th>
-                <th class="bg-black">
-                    @Html.DisplayNameFor(model => model.CNPJ)
-                </th>
-                <th class="bg-black">
-                    @Html.DisplayNameFor(model => model.Email)
-                </th>
-                <th class="bg-black">
-                    @Html.DisplayNameFor(model => model.Telefone)
-                </th>
-                <th class="bg-black">
-                    @Html.DisplayNameFor(model => model.DataDeCadastro)
-                </th>
-                <th class="bg-black">
-                    @Html.DisplayNameFor(model => model.Ativo)
-                </th>
-                <th class="bg-black"></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+            <thead>
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nome)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CNPJ)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Email)
-                    </td>
-                    <td class="text-light text-decoration-none">
-                        @item.Email
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Telefone)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DataDeCadastro)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Ativo)
-                    </td>
-                    <td>
-                        <a class="btn btn-sm btn-outline-primary me-2" asp-action="Edit" asp-route-id="@item.FornecedorID">Editar</a>
-                        <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.FornecedorID">Deletar</a>
-                    </td>
+                    <th class="bg-black">
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th class="bg-black">
+                        @Html.DisplayNameFor(model => model.CNPJ)
+                    </th>
+                    <th class="bg-black">
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th class="bg-black">
+                        @Html.DisplayNameFor(model => model.Telefone)
+                    </th>
+                    <th class="bg-black">
+                        @Html.DisplayNameFor(model => model.DataDeCadastro)
+                    </th>
+                    <th class="bg-black">
+                        @Html.DisplayNameFor(model => model.Ativo)
+                    </th>
+                    <th class="bg-black"></th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CNPJ)
+                        </td>
+                        <td class="text-light text-decoration-none">
+                            @item.Email
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Telefone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataDeCadastro)
+                        </td>
+                        <td>
+
+                            @Html.DisplayFor(modelItem => item.Ativo)
+                        </td>
+
+                        <td>
+                            <a class="btn btn-sm btn-outline-primary " asp-action="Edit" asp-route-id="@item.FornecedorID">Editar</a>
+
+                            <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.FornecedorID">Deletar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
 
 
 
+    </div>
